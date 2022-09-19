@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class User(AbstractUser):
@@ -19,8 +20,8 @@ class Category(models.Models):
 class Post(models.Model):
   category=models.ForeignKey(Category,on_delete=models.CASCADE)
   title=models.CharField(max_length=20)
-  image=models.CloudinaryField('image')
-  video=models.CloudinaryField('video')
+  image=CloudinaryField('image')
+  video=CloudinaryField('video')
   content=models.TextField()
   timePosted=models.DateTimeField(auto_now_add=True)
   likes = models.IntegerField(default=0)
@@ -45,6 +46,11 @@ class Comment(models.Model):
 
   def _str_(self):
     return 'Comment{} by  {}'.format(self.body,self.name)
+
+class Profile(models.Model):
+  username=models.ForeignKey(User,on_delete=models.CASCADE)
+  avatar=CloudinaryField('avatar')
+  
 
 
 
