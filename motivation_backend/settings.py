@@ -33,10 +33,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 cloudinary.config(
-  cloud_name = "dtdpap4nc",
-  api_key = "366717219252162",
-  api_secret = "kAy36sc0HmQSMBsg7oAMZZUg_n4"
+  cloud_name = config('CLOUDINARY_NAME'),
+  api_key = config('CLOUDINARY_API_KEY'),
+  api_secret = ('CLOUDINARY_API_SECRET')
 )
+
 
 # Application definition
 
