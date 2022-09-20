@@ -84,7 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'motivation_backend.wsgi.application'
 
-AUTH_USER_MODEL = 'codersmotivation.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
