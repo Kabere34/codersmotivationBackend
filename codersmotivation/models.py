@@ -21,6 +21,15 @@ class Post(models.Model):
   likes = models.IntegerField(default=0)
   author=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+  objects = models.Manager()
+
+  def likes_count(self):
+       return self.like.all().count()
+
+
+  def __str__(self):
+      return self.title
+
 
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -28,12 +37,9 @@ class Like(models.Model):
 
 class Comment(models.Model):
   post=models.ForeignKey(Post, on_delete=models.CASCADE,related_name='comments')
-  name=models.CharField(max_length=80)
-  email=models.EmailField()
-  body=models.TextField()
-  created_on=models.DateTimeField(auto_now_add=True)
-  active=models.BooleanField(default=False)
-
+  author = models.ForeignKey(User, on_delete=models.CASCADE)
+  text = models.TextField()
+  created_on = models.DateTimeField(auto_now_add=True)
   class Meta:
     ordering=['created_on']
 
