@@ -46,10 +46,10 @@ class Comment(models.Model):
   def _str_(self):
     return 'Comment{} by  {}'.format(self.body,self.name)
 
-class Profile(models.Model):
-  username=models.ForeignKey(User,on_delete=models.CASCADE)
-  avatar=CloudinaryField('avatar')
-  category=models.ForeignKey(Category,on_delete=models.CASCADE)
-  post=models.ForeignKey(Post,on_delete=models.CASCADE)
+# class Profile(models.Model):
+#   username=models.ForeignKey(User,on_delete=models.CASCADE)
+#   avatar=CloudinaryField('avatar')
+#   category=models.ForeignKey(Category,on_delete=models.CASCADE)
+#   post=models.ForeignKey(Post,on_delete=models.CASCADE)
 
 
