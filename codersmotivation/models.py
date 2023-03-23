@@ -5,7 +5,7 @@ from authentication.models import User
 # Create your models here.
 
 
-class Category(models.Models):
+class Category(models.Model):
   category=models.CharField(max_length=20)
 
   def __str__(self):
@@ -25,7 +25,6 @@ class Post(models.Model):
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 
 class Comment(models.Model):
   post=models.ForeignKey(Post, on_delete=models.CASCADE,related_name='comments')
