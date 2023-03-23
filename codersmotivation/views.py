@@ -43,5 +43,14 @@ class LikeView(generics.UpdateAPIView):
         return Response(serializer.data)
 
 
+class UnlikeView(generics.UpdateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
+    def patch(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.like -= 1
+        instance.save()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
