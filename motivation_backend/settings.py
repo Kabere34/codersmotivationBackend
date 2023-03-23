@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'codersmotivation',
     'authentication',
     'crispy_forms',
+    'allauth',
+    'rest_framework.authtoken'
 
 ]
 
